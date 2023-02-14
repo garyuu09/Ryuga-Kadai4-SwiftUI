@@ -8,13 +8,30 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var counter = 0
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            Text(String(counter))
+                .font(.title)
+            // Count up button
+            Button(action: {
+                counter = addValue(value: counter)
+            }) {
+                Text("+1")
+            }
+            // Clear button
+            Button(action: {
+                counter = resetValue(value: counter)
+            }) {
+                Text("Clear")
+            }
         }
+    }
+    func addValue(value: Int) -> Int {
+        return value + 1
+    }
+    func resetValue(value: Int) -> Int {
+        return 0
     }
 }
 
