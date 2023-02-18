@@ -9,29 +9,26 @@ import SwiftUI
 
 struct ContentView: View {
     @State var counter = 0
+
     var body: some View {
-        VStack {
+        VStack(spacing: 16) {
             Text(String(counter))
                 .font(.title)
-            // Count up button
-            Button(action: {
-                counter = addValue(value: counter)
-            }) {
+            // Count up counter
+            Button(action: countUp) {
                 Text("+1")
             }
-            // Clear button
-            Button(action: {
-                counter = resetValue(value: counter)
-            }) {
+            // Clear counter
+            Button(action: clear) {
                 Text("Clear")
             }
         }
     }
-    func addValue(value: Int) -> Int {
-        return value + 1
+    private func countUp() {
+        counter += 1
     }
-    func resetValue(value: Int) -> Int {
-        return 0
+    private func clear() {
+        counter = 0
     }
 }
 
